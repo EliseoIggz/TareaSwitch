@@ -27,20 +27,23 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        SwitchCompat sB = findViewById(R.id.switch1);
+        SwitchCompat sB = findViewById(R.id.switch1);   //Usando switch se me congelaba y dejaba de responder
         ImageView myImageView = findViewById(R.id.imageView2);
 
-        sB.setTextOn("Visible");
-        sB.setTextOff("Invisible");
+        //sB.setTextOn("Visible");      No hubo manera de que esto funcionase como en
+        //sB.setTextOff("Invisible");   el button del anterior ejercicio
 
-        sB.setChecked(false);
+        sB.setChecked(true);
+        sB.setText("Visible");
 
         sB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b){
                 if (b){
+                    sB.setText("Visible");
                     myImageView.setVisibility(View.VISIBLE);
                 }else{
+                    sB.setText("Invisible");
                     myImageView.setVisibility(View.GONE);
                 }
             }
